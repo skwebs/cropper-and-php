@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.img_wrapper {
+	margin: 0 auto;
+	width: 300px;
+	height: 345px;
+}
+
+
+/* Limit image width to avoid overflow the container */
+
+.img_wrapper img {
+	width: 100%;
+	/* This rule is very important, please do not ignore this! */
+}
+
+#response {
+	width: 300px;
+	margin: 10px auto;
+	padding: 20px;
+}
+
+#response img {
+	width: 100%;
+	border: thin solid #000;
+}
+
+cropBtn {
+	margin: 0 40%;
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.processing {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1200;
+	display: flex;
+	background: #fff;
+}
+
+.processing img {
+	width: ;
+}
+
+.processing p {
+	margin-top: 20px;
+}
+
+file_property span {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+#change_image span {
+	white-space: nowrap;
+	color: #000;
+}
+
+#img_for_crop_section {
+	display: none;
+}
+
+#label_image:active {
+	transition: all 0.1s;
+}
+
+#label_image:active {
+	box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.125);
+	transform: translate3d(-5px, -2px, 5px);
+}

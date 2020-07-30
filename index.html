@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>jQuery-Cropper </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10 shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="theme-color" content="#09407f">
+	<!-- bootstrap -->
+	<link href="./assets/vendor/bootstrap/4.5.0/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- all vendors js file-->
+	<!-- jQuery -->
+	<script src="./assets/vendor/jquery/3.5.1/jquery.min.js"></script>
+	<!-- bootstrap bundle -->
+	<script src="./assets/vendor/bootstrap/4.5.0/bootstrap.bundle.min.js"></script>
+	<!-- individual css -->
+	<style type="text/css">
+		body{font-size:4vw;text-align:center;}
+		.hdName{font-size:2em;}
+		strong {color:var(--light);}
+		description{font-size:1.2rem;}
+		.text-teal{color:var(--teal);}
+		.goto{font-size:1.3em;}
+	</style>
+</head>
+<body>
+	<section class="px-5" style="background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),url('./assets/img/laptop-typing.jpg') fixed no-repeat center center/cover;">
+		<div class="container d-flex flex-column justify-content-center align-items-center vh-100" >
+			<p class="hdName text-warning mb-3" >Hi, I am Satish.</p>
+			<p class="description text-teal text-center" >
+				I have created a script to <strong>crop</strong> an image and <strong>upload</strong> on server using <a href="https://github.com/fengyuanchen/cropperjs" >CropperJS</a> 
+				jQuery version wrapper <a href="https://github.com/fengyuanchen/jquery-cropper" >jquery-cropper</a>.
+			</p>
+			<p class="text-secondary" >Download this script & use it in your <code>php</code> server & your project.</p>
+			
+			<p class="text-success" >After download you can check to crop and upload image.</p>
+			
+			<div class="text-secondary" >I am using two method to send cropped image data by ajax that demo link is below :<br>
+			<div class="goto border border-secondary rounded py-2" >
+			1. Go to <a class="link" href="./blob.html" >Blob Demo Link</a><br>
+			2. Go to <a class="link" href="./dataURL.html" >dataURL Demo Link</a>
+			</div>
+			</div>
+			<p class="text-danger" >Note : Without <code>PHP Server</code> you can crop image but couldn't upload it.</p>
+		</div>
+	</section>
+</body>
+
+</html>
