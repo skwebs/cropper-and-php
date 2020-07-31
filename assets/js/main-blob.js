@@ -117,7 +117,7 @@ function crop() {
 	    //formData.append('field_name', blob_file, 'blob_file_name');
 	    formData.append('cropped_image', blob, 'avatar.'+mimeType.slice(6));
 	    formData.append('fileExt', mimeType.slice(6));
-	    formData.append('dataURL_or_blob', 'blob');
+	    formData.append('action', 'blob');
 	    
 	    $.ajax('upload.php', {
 	        method: 'POST',

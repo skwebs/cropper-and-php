@@ -120,7 +120,7 @@ function crop() {
         dataType: 'json', // what type of data do we expect back from the server
         encode: true,
         data: {
-	        dataURL_or_blob: 'dataURL',
+	        action: 'dataURL',
             croppedImageFile: cropImgURL,
             fileExt: mimeType.slice(6)
         },
