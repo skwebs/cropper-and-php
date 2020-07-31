@@ -47,7 +47,7 @@
 <body>
   <div class="container">
     
-    <h1 class="d-none" >Upload cropped image to server</h1>
+    <h1>Upload cropped image to server</h1>
     
     <label class="label" data-toggle="tooltip" title="Change your avatar">
       <img class="rounded " id="avatar" src="./assets/img/avatar.jpeg" alt="avatar">
@@ -59,34 +59,11 @@
     </div>
     
     <div class="alert" role="alert"></div>
-    <!--
-    <div class="d-none modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="img-container">
-              <img id="imag" src="./assets/img/avatar.jpeg">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="crop">Crop</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
     
     
     <div class="py-4" >
-	    
-	    <div class="collapse show d-none" id="preview">
+	    <!--
+	    <div class="collapse show" id="preview">
 		    <div class="card card-body">
 			    <h1>Preview</h1>
 			    <div class="image_wrapper border" >
@@ -96,9 +73,8 @@
 					 </label>
 				 </div>
 		    </div>
-	    <!--<button id="cropBtn" >Crop</button>-->
 	    </div>
-	    
+	    -->
 	    <div class="collapse" id="cropSec">
 		    <div class="card card-body">
 			    <h1>Crop</h1>
@@ -110,11 +86,9 @@
 				    <button type="button" class="btn btn-primary" id="crop">Crop</button>
 			    </div>
 		    </div>
-	    <!--<button id="previewBtn" >Preview</button>-->
 	    </div>
     
     </div>
-    <h1 class="bg-dark text-center text-light" >Last level</h1>
     
   </div>
   
@@ -141,7 +115,6 @@
           input.value = '';
           image.src = url;
           $alert.hide();
-          //$modal.modal('show');
           $cropSec.collapse('show')
         };
         var reader;
@@ -165,7 +138,6 @@
         }
       });
 
-      //$modal.on('shown.bs.modal', function () {
       $cropSec.on('shown.bs.collapse', function () {
         cropper = new Cropper(image, {
           aspectRatio: 20/23,
@@ -179,8 +151,7 @@
           toggleDragModeOnDblclick: !1,
           viewMode: 3
         });
-      })//.on('hidden.bs.modal', function () {
-      .on('hidden.bs.collapse', function () {
+      }).on('hidden.bs.collapse', function () {
         cropper.destroy();
         cropper = null;
       });
@@ -190,8 +161,7 @@
         var canvas;
 
         $cropSec.collapse("hide")
-        //$modal.modal('hide');
-
+      
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
             width: 300,
@@ -208,7 +178,7 @@
             formData.append('fileExt', mimeType.slice(6));
             formData.append('action', 'blob');
             
-            $.ajax('upload-2.php', {
+            $.ajax('upload.php', {
               method: 'POST',
               data: formData,
               processData: false,
@@ -287,46 +257,6 @@
 		        default:return 'Unknown filetype'
 		    }
 		};
-		
-		
-		
-		/*
-		$('#preview').on('show.bs.collapse', function () {
-			$('#cropSec').collapse('hide')
-		console.log('preview show')
-		})
-		$('#cropSec').on('show.bs.collapse', function () {
-			$('#preview').collapse('hide')
-		console.log('cropSec show')
-		})
-		*
-		
-		$('#preview').on('hide.bs.collapse', function () {
-			$('#cropSec').collapse('show')
-			console.log('preview hide')
-		})
-		*
-		$('#cropSec').on('show.bs.collapse', function () {
-			$('#preview').collapse('hide')
-			console.log('cropSec hide')
-		})
-		
-		$('#cropSec').on('hide.bs.collapse', function () {
-			$('#preview').collapse('show')
-			console.log('cropSec hide')
-		})
-		
-		
-		$("#preview").click(()=>{
-		//$(this).collapse("hide");
-			$("#preview").collapse("hide");
-		})
-		
-		$("#cropSec").click(()=>{
-			//$(this).collapse("hide");
-			$('#cropSec').collapse("hide")
-		})*/
-		
     });
   </script>
 </body>
