@@ -118,6 +118,8 @@ function crop() {
         type: 'POST',
         url: 'upload.php',
         dataType: 'json', // what type of data do we expect back from the server
+        processData: false,
+        contentType: false,
         encode: true,
         data: {
 	        action: 'dataURL',

@@ -14,7 +14,22 @@ var cropBtn = $("#cropBtn");
 var labelImg = $("#label_image");
 var response = $("#response");
 var mimeType = '';
+var cropperActive = false;
+var $rotateNeg = $("#rotateNeg");
+var $rotatePos = $("#rotatePos");
 
+$rotatePos.click(()=>{
+	if(cropperActive){
+		imgForCrop.cropper("rotate",.5);
+		console.log("+10deg");
+	}
+})
+$rotateNeg.click(()=>{
+	if(cropperActive){
+		imgForCrop.cropper("rotate", -1);
+		console.log("-10deg");
+	}
+})
 //	 IMAGE LOAD SECTION ================================
 imageInput.addEventListener("change", (event) => {
     cancelEdit();
@@ -164,12 +179,14 @@ function crop() {
 
 //	OTHER SUPPORTING FUNCTIONS ==================================
 function editImage() {
+    cropperActive = true;
     imgForCrop.cropper(cropperOptions);
     cropBtn.removeClass('d-none').addClass('d-block')
     //cancelBtn.removeClass('d-none').addClass('d-block')
 }
 
 function cancelEdit() {
+    cropperActive = false;
     imgForCrop.cropper('destroy');
     cropBtn.removeClass('d-block').addClass('d-none')
     //	cancelBtn.removeClass('d-block').addClass('d-none')
@@ -189,6 +206,7 @@ function hideProcess() {
 }
 
 function cancelCrop() {
+    cropperActive = false;
     fileSize.html("");
     fileName.html("");
     imgForCropSection.fadeOut(() => {

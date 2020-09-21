@@ -28,7 +28,9 @@
 		if($fileExt=='jpeg'){$fileExt = 'jpg';}
 		
 		//	set cropped image name according to date & time
-		$new_img_name = time()."-".date("dFY-Hi").".".$fileExt; 
+		$new_img_name = "IMG_CROP_".date("Ymd_His").".".$fileExt; 
+		//$new_img_name = time()."-".date("dFY-Hi").".".$fileExt; 
+		//$new_img_name = date("dFY").".".$fileExt; 
 		//$_POST['fileExt'];
 		
 		//	set image img_directory path
