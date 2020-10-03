@@ -57,6 +57,23 @@
 					//save image in file
 					if(empty($errors)){
 						
+						$file=$_FILES['cropped_image']['tmp_name'];
+						list($width,$height)=getimagesize($file);
+						$nwidth=$width;
+						$nheight=$height;
+						$newimage=imagecreatetruecolor($nwidth,$nheight);
+						if($_FILES['cropped_image']['type']=='image/jpeg'){
+						$source=imagecreatefromjpeg($file);
+						imagecopyresized($newimage,$source,0,0,0,0,$nwidth,$nheight,$width,$height);
+						$file_name=time().'.jpg';
+						if(imagejpeg($newimage,'cropped_img/n_'.$file_name)){
+							if(move_uploaded_file($img_tmp_name, )){
+								echo "new img created by new script\n";
+							};
+						}else{
+						echo "new img not created by new script\n";
+						};
+						}
 						//////////{{{{{{{{{{{{{{{{
 						
 						function resizeImage($resourceType,$image_width,$image_height,$resizeWidth,$resizeHeight) {

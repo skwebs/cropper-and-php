@@ -183,7 +183,7 @@
             formData.append('fileExt', mimeType.slice(6));
             formData.append('action', 'blob');
             
-            $.ajax('upload_with_server_compress.php', {
+            $.ajax('upload-image-compress-03oct.php', {
               method: 'POST',
               data: formData,
               processData: false,
@@ -208,12 +208,14 @@
               },
 
               success: function (res) {
+                //alert(res)
                 if(res.success){
 	                toastMsg("Image saved successfully.");
 	                //$alert.show().addClass('alert-success').text(JSON.stringify(res));
 	                console.timeEnd('crop time');
 	                console.log(res)
                 }else{
+	                
 	                toastMsg("Something goes wrong..");
 	                //$alert.show().addClass('alert-danger').text(JSON.stringify(res.errors));
 	                console.log(res)
@@ -222,6 +224,7 @@
               },
 
               error: function (err) {
+                alert(JSON.stringify(err));
                 toastMsg("Error(s)..");
                 avatar.src = initialAvatarURL;
                 //$alert.show().addClass('alert-warning').text('Upload error');
